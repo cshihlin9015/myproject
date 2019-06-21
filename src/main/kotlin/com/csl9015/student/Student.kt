@@ -1,7 +1,17 @@
 package com.csl9015.student
 
+import java.util.*
+
 fun main(args: Array<String>) {
-    val stuk1 = Studentk("Kent", 98, 95)
+    val scanner = Scanner(System.`in`)
+    print("Please enter student's name : ")
+    var name = scanner.next()
+    print("Please enter student's english : ")
+    var english = scanner.nextInt()
+    print("Please enter student's math : ")
+    var math = scanner.nextInt()
+
+    val stuk1 = Studentk(name, english, math)
     stuk1.print()
 }
 

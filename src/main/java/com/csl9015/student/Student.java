@@ -6,8 +6,7 @@ public class Student {
     int english;
     int math;
 
-    public Student(String id, String name, int english, int math) {
-        this.id = id;
+    public Student(String name, int english, int math) {
         this.name = name;
         this.english = english;
         this.math = math;
