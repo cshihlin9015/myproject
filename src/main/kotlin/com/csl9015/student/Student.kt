@@ -15,8 +15,12 @@ fun main(args: Array<String>) {
     stuk1.print()
 }
 
-class Studentk(var name: String, var english: Int, var math: Int) {
+class Studentk(var name: String?, var english: Int, var math: Int) {
     fun print() {
         println(name + "\t" + english + "\t" + math + "\t" + (english + math) / 2)
+    }
+
+    fun nameCheck(){
+        println(name?.length)
     }
 }
