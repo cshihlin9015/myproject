@@ -4,7 +4,7 @@ import java.util.*
 
 fun main(args: Array<String>) {
 //    userInput()
-    val stuk = Studentk("Kent", 90, 95)
+    val stuk = Studentk("Kent", 20, 95)
     stuk.print()
     val test = "123"
     println("Test is $test")
@@ -13,26 +13,58 @@ fun main(args: Array<String>) {
 
 class Studentk(var name: String?, var english: Int, var math: Int) {
     fun print() {
-        println(
-            name + "\t" + english + "\t" + math + "\t" + getAverage()+ "\t"
-                    + if (getAverage() >= 60) "PASS" else "FAILED"
-        )
+        println("name\tenglish\tmath\t${getAverage()}\t${passOrFailed()}\t${grading()}")
     }
 
-    fun getAverage(): Int {
-        return (english + math) / 2
+    fun grading() = when (getAverage()) {
+        in 90..100 -> 'A'
+        in 80..89 -> 'B'
+        in 70..79 -> 'C'
+        in 60..69 -> 'D'
+        else -> 'F'
     }
 
-    fun highest(): Int {
-        var max = if (math > english) {
-            println("math")
-            math
-        } else {
-            println("english")
-            english
-        }
-        return max
+    //    fun grading(): Char {
+////        var grading = when (getAverage()) {
+////            in 90..100 -> 'A'
+////            in 80..89 -> 'B'
+////            in 70..79 -> 'C'
+////            in 60..69 -> 'D'
+////            else -> 'F'
+////        }
+////        return grading
+//        return when (getAverage()) {
+//            in 90..100 -> 'A'
+//            in 80..89 -> 'B'
+//            in 70..79 -> 'C'
+//            in 60..69 -> 'D'
+//            else -> 'F'
+//        }
+//    }
+    fun passOrFailed() = if (getAverage() >= 60) "PASS" else "FAILED"
+
+    fun getAverage() = (english + math) / 2
+    //    fun getAverage(): Int {
+//        return (english + math) / 2
+//    }
+
+    fun highest() = if (math > english) {
+        println("math")
+        math
+    } else {
+        println("english")
+        english
     }
+//    fun highest(): Int {
+//        var max = if (math > english) {
+//            println("math")
+//            math
+//        } else {
+//            println("english")
+//            english
+//        }
+//        return max
+//    }
 
     fun nameCheck() {
         println(name?.length)
