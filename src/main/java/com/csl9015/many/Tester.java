@@ -1,14 +1,40 @@
 package com.csl9015.many;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Tester {
     public static void main(String[] args) {
 //        arrayTest();
+//        list();
+//        set();
+        HashMap<String, String> stock = new HashMap<>();
+        stock.put("2330", "台積電");
+        stock.put("2317", "鴻海");
+        System.out.println(stock);
+        stock.put("2330", "TSMC");
+        System.out.println(stock);
+        System.out.println(stock.get("2330"));
+        for (String key : stock.keySet()) {
+            System.out.println(stock.get(key));
+        }
 
-//        ArrayList list = new ArrayList();
+    }
+
+    private static void set() {
+        HashSet<Integer> set = new HashSet<>();
+        // 沒有排序的功能
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(2);
+        System.out.println(set);
+        for (int n : set) {
+            System.out.println(n);
+        }
+    }
+
+    private static void list() {
+        //        ArrayList list = new ArrayList();
 //        list.add(5);
 //        list.add(4);
 //        list.add("asd");
@@ -27,7 +53,7 @@ public class Tester {
         int n1 = list.get(0);
         System.out.println(list.size());
 
-        List<Integer> scores= Arrays.asList(85, 25, 45, 90, 65);
+        List<Integer> scores = Arrays.asList(85, 25, 45, 90, 65);
         for (int score : scores) {
             System.out.println(score);
         }
