@@ -2,11 +2,39 @@ package com.csl9015.parking;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Tester {
     public static void main(String[] args) {
+//        java8();
+//        java();
+    }
+
+    private static void java8() {
+        Instant instant = Instant.now();
+        System.out.println(instant); // 格林威治的全球標準時間
+
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now); // 當地時間
+
+        // 自行定義時間格式
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        System.out.println(formatter.format(now));
+
+        // 時間運算
+        System.out.println(now.plus(Duration.ofHours(3)));
+
+        // 自行定義時間
+        LocalDateTime other = LocalDateTime.of(2019, 6, 28, 8, 30, 30);
+        System.out.println(other);
+    }
+
+    private static void java() {
         Date date = new Date(); // 表示目前時間
         System.out.println(date);
         System.out.println(date.getTime()); // 印出 long 值
@@ -34,6 +62,5 @@ public class Tester {
         System.out.println(calendar.getTime());
         calendar.add(Calendar.DAY_OF_YEAR, 3);
         System.out.println(calendar.getTime());
-
     }
 }
