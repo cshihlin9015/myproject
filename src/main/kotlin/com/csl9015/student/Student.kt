@@ -4,6 +4,7 @@ import java.util.*
 
 fun main(args: Array<String>) {
 //    userInput()
+
     Studentk.pass = 50
     val stuk = Studentk("Kent", 20, 95)
     val stuk1 = Studentk("Wed", 80, 85)
@@ -15,9 +16,27 @@ fun main(args: Array<String>) {
     val test = "123"
     println("Test is $test")
     println("High score : ${stuk.highest()}")
+
+    // 研究生
+    val gstuk = GraduateStudentk("Ryan", 95, 88, 10)
+    gstuk.print()
 }
 
-class Studentk(var name: String?, var english: Int, var math: Int) {
+class GraduateStudentk(name: String?, english: Int, math: Int, var thesis: Int) : Studentk(name, english, math) {
+    companion object {
+        val pass = 70
+    }
+
+    override fun print() {
+        println("$name\t$english\t$math\t$thesis\t${getAverage()}\t${passOrFailed()}\t${grading()}")
+    }
+
+    override fun getAverage() = (english + math + thesis) / 3
+
+    override fun passOrFailed() = if (getAverage() >= pass) "PASS" else "FAILED"
+}
+
+open class Studentk(var name: String?, var english: Int, var math: Int) {
     companion object {
         @JvmStatic
         var pass = 60
@@ -27,8 +46,8 @@ class Studentk(var name: String?, var english: Int, var math: Int) {
         }
     }
 
-    fun print() {
-        println("name\tenglish\tmath\t${getAverage()}\t${passOrFailed()}\t${grading()}")
+    open fun print() {
+        println("$name\t$english\t$math\t${getAverage()}\t${passOrFailed()}\t${grading()}")
     }
 
     fun grading() = when (getAverage()) {
@@ -56,9 +75,9 @@ class Studentk(var name: String?, var english: Int, var math: Int) {
 //            else -> 'F'
 //        }
 //    }
-    fun passOrFailed() = if (getAverage() >= pass) "PASS" else "FAILED"
+    open fun passOrFailed() = if (getAverage() >= pass) "PASS" else "FAILED"
 
-    fun getAverage() = (english + math) / 2
+    open fun getAverage() = (english + math) / 2
     //    fun getAverage(): Int {
 //        return (english + math) / 2
 //    }

@@ -19,6 +19,10 @@ public class SchoolRunner {
         stu2.print();
 
         System.out.println("High score : " + stu.highest());
+
+        //研究生
+        GraduateStudent gstu=new GraduateStudent("Kent",70,60,80);
+        gstu.print();
     }
 
     private static void userInput() {
